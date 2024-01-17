@@ -1,4 +1,4 @@
 package com.fb.pages;
 
-public class HomePage {
+public class HomePage extends LoginPage{
 }

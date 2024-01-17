@@ -32,19 +32,20 @@ public class BaseClass {
     public static void initialization() {
         String browserName = properties.getProperty("browser");
         if (browserName.equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "C:\\Users\\DELL\\Downloads\\chromedriver_win32");
+            System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
             webDriver = new ChromeDriver();
         } else if (browserName.equals("firefox")) {
-            System.setProperty("webdriver.gecko.driver", "C:\\Users\\DELL\\Downloads\\geckodriver-v0.34.0-win-aarch64");
+            System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\Mozilla Firefox\\firefox.exe");
             webDriver = new FirefoxDriver();
         }
 
+        webDriver.get(properties.getProperty("url"));
 
         webDriver.manage().window().maximize();
         webDriver.manage().deleteAllCookies();
         webDriver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_TIMEOUT, TimeUnit.SECONDS);
         webDriver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_TIMEOUT,TimeUnit.SECONDS);
 
-        webDriver.get(properties.getProperty("url"));
+
     }
 }
