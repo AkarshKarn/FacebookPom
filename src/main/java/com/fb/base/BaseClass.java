@@ -4,6 +4,7 @@ import com.fb.util.TestUtil;
 import org.apache.poi.hpsf.Property;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.FileInputStream;
@@ -32,19 +33,19 @@ public class BaseClass {
     public static void initialization() {
         String browserName = properties.getProperty("browser");
         if (browserName.equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
-            webDriver = new ChromeDriver();
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--disable-notifications");
+            webDriver = new ChromeDriver(chromeOptions);
         } else if (browserName.equals("firefox")) {
-            System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\Mozilla Firefox\\firefox.exe");
             webDriver = new FirefoxDriver();
         }
-
         webDriver.get(properties.getProperty("url"));
-
         webDriver.manage().window().maximize();
+
         webDriver.manage().deleteAllCookies();
         webDriver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_TIMEOUT, TimeUnit.SECONDS);
         webDriver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_TIMEOUT,TimeUnit.SECONDS);
+
 
 
     }
