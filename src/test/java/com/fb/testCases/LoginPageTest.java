@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class LoginPageTest extends BaseClass {
 
-    LoginPage loginPage;
+  public LoginPage loginPage;
     HomePage homePage;
 
     public LoginPageTest(){
@@ -27,8 +27,8 @@ public class LoginPageTest extends BaseClass {
 
     @Test(priority = 1)
     public void validateLoginPageTitleTest(){
-       String title= loginPage.validateLoginPageTitle();
-        Assert.assertEquals(title,"Facebook – log in or sign up");
+       String titleLoginPage= loginPage.validateLoginPageTitle();
+        Assert.assertEquals(titleLoginPage,"Facebook – log in or sign up");
         webDriver.close();
     }
 
@@ -38,8 +38,8 @@ public class LoginPageTest extends BaseClass {
     }
 
 
-    @AfterTest
-    public void close(){
-        webDriver.quit();
-    }
+//    @AfterTest
+//    public void close(){
+//        webDriver.quit();
+//    }
 }

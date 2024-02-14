@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -37,7 +38,9 @@ public class BaseClass {
             chromeOptions.addArguments("--disable-notifications");
             webDriver = new ChromeDriver(chromeOptions);
         } else if (browserName.equals("firefox")) {
-            webDriver = new FirefoxDriver();
+            FirefoxOptions firefoxOptions=new FirefoxOptions();
+            firefoxOptions.addArguments("--disable-notifications");
+            webDriver = new FirefoxDriver(firefoxOptions);
         }
         webDriver.get(properties.getProperty("url"));
         webDriver.manage().window().maximize();

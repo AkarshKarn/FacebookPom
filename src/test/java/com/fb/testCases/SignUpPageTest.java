@@ -27,12 +27,12 @@ public class SignUpPageTest extends BaseClass {
 
     @Test(priority = 1)
     public void validateLoginPageTitleTest(){
-        String title= SignUpPage.validateSignUpPageTitle();
-        Assert.assertEquals(title,"Facebook – log in or sign up");
+        String titleHomePage= SignUpPage.validateSignUpPageTitle();
+        Assert.assertEquals(titleHomePage,"Facebook – log in or sign up");
         webDriver.close();
     }
 
-    @Test
+    @Test(priority = 2)
     public void signUpFb(){
         homePage= signUpPage.signUpFb(properties.getProperty("firstname"),properties.getProperty("surname"),properties.getProperty("mobileNumber"),properties.getProperty("newPassword"),properties.getProperty("day"),properties.getProperty("month"),properties.getProperty("year"));
     }
