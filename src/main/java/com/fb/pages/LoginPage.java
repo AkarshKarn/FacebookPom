@@ -18,9 +18,6 @@ public class LoginPage extends BaseClass {
 
 
 
-//    @FindBy(xpath = "//*[@id=\"u_0_0_F5\"]")
-//    WebElement signUp;
-
 
     public LoginPage(){
         PageFactory.initElements(webDriver,this);
